@@ -1,0 +1,48 @@
+<h1 class="center">Welcome To Vennela's World</h1>
+<h2 class="center"> Enter your Contact details</h2>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="contact-name">Contact Name: </label>
+    <input id="contact-name" type="text" formControlName="contactName"><br>
+  
+    <label for="contact-job-title">Contact Job Title: </label>
+    <input id="ontact-job-title" type="text" formControlName="contactJobTitle"><br>
+
+    <label for="contact-email">Contact Email: </label>
+    <input id="contact-email" type="text" formControlName="contactEmail"><br>
+
+    <label for="contact-phone">Contact phone: </label>
+    <input id="contact-phone" type="text" formControlName="contactPhone"><br>
+    <div formGroupName="contactAddress">
+
+    <label for="contact-address">Address: </label><br>
+
+    <label for="contact-address-street">Street: </label>
+    <input id="contact-address-street" type="text" formControlName="street"><br>
+
+    <label for="contact-address-zipcode">Zipcode: </label>
+    <input id="contact-address-zipcode" type="text" formControlName="zip" (keyup)="autofillCity()"><br>
+
+    <label for="contact-address-city">City: </label>
+    <input id="contact-address-city" type="text" formControlName="city"><br>
+
+    <label for="contact-address-state">State: </label>
+    <input id="contact-address-state" type="text" formControlName="state"><br>
+    </div>
+
+    <label for="contact-project-title">Project Title: </label>
+    <input id="contact-project-title" type="text" formControlName="contactProjectTitle"><br>
+
+    <label for="contact-desc-project">Description of Project: </label>
+    <input id="contact-desc-project" type="text" formControlName="contactDescProject"><br>
+
+    <label for="contact-tech-skills">Technical Skills Required: </label>
+    <input id="contact-tech-skills" type="text" formControlName="contactTechSkills"><br>
+
+
+    <label for="contact-tech-skills">Form Status: {{profileForm.status}}</label><br>
+   
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  
+  </form>
