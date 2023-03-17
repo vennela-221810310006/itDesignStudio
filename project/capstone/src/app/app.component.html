@@ -1,3 +1,7 @@
 
+<div>
+    <ul *ngFor ="let contactDetail of contactDetails let i = index">
+        <li> {{contactDetail.contactName}}: {{contactDetail.contactJobTitle}}:  {{contactDetail.contactEmail}}</li></ul>
+</div>
 <app-contact-details></app-contact-details>
 <!--app-address></app-address-->

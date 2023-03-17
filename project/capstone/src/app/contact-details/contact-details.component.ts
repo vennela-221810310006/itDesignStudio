@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+import { ContactDetailsService } from '../contactdetails.service';
 
 @Component({
   selector: 'app-contact-details',
   templateUrl: './contact-details.component.html',
   styleUrls: ['./contact-details.component.css']
 })
-export class ContactDetailsComponent {
-
+export class ContactDetailsComponent  {
+postResponse:any;
 
 zipCodes=[
   {
@@ -72,11 +73,14 @@ zipCodes=[
   get state(): any {
     return this.profileForm.get('contactAddress.state');
   }
-  constructor(private fb: FormBuilder) { }
-
+  constructor(private fb: FormBuilder,private _myService:ContactDetailsService) { }
+  
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
+   this._myService.addcontactDetails(this.profileForm.value).subscribe((responseData) => {
+    this.postResponse=responseData;
+    }); 
   }
   autofillCity(){
     console.warn(this.zip?.value);

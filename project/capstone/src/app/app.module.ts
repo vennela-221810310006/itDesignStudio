@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { AddressComponent } from './address/address.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactDetailsService } from './contactdetails.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { AddressComponent } from './address/address.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ContactDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
